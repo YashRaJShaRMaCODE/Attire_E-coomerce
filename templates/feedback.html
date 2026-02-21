@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+{% block title %}About Us{% endblock title %}
+
+{% block body %}
+<div class="container">
+    <h1>Feedback</h1>
+    <p>We value your feedback and would love to hear from you! Please use the form below to share your thoughts, suggestions, or any issues you may have encountered while using our website.</p>
+    
+    <form>
+        <div class="mb-3">
+            <label for="name" class="form-label">Name</label>
+            <input type="text" class="form-control" id="name" placeholder="Enter                    
+your name">
+        </div> 
+        <div class="mb-3">
+            <label for="email" class="form-label">Email address</label>
+            <input type="email" class="form-control" id="email" placeholder="Enter your email">
+        </div>
+        <div class="mb-3">
+            <label for="message" class="form-label">Message</label>
+            <textarea class="form-control" id="message" rows="5" placeholder="Enter your message"></textarea>
+        </div>
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+</div>
+{% endblock body %}
