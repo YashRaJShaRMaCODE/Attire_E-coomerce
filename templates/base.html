@@ -1,80 +1,60 @@
-<!doctype html>
+
+<!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8">
+<head>
+    <meta charset="UTF-8">
+    <title>Govind Attire</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <!-- Bootstrap CSS (Normal, not RTL) -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
 
-    <title>{% block title %}Govind Attire{% endblock title %}</title>
-  </head>
+    <style>
+        body { font-family: Arial; }
+        .hero-img { height: 520px; object-fit: cover; }
+        footer { background:#111; color:white; padding:25px 0; margin-top:60px;}
+        .section-title { text-align:center; margin:50px 0 20px; font-weight:bold;}
+    </style>
+</head>
+<body>
 
-  <body>
+<!-- NAVBAR -->
+<nav class="navbar navbar-expand-lg navbar-light bg-light shadow-sm">
+    <div class="container">
+        <a class="navbar-brand fw-bold" href="/">Govind Attire</a>
 
-    <!-- Navbar -->
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
-      <div class="container">
-        <a class="navbar-brand" href="/">Govind Attire</a>    
-
-        
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
-                data-bs-target="#navbarSupportedContent">
-          <span class="navbar-toggler-icon"></span>
+        <button class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#nav">
+            <span class="navbar-toggler-icon"></span>
         </button>
 
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <div class="collapse navbar-collapse" id="nav">
+            <ul class="navbar-nav ms-4">
+                <li class="nav-item"><a class="nav-link" href="/">Home</a></li>
+                <li class="nav-item"><a class="nav-link" href="/about">About</a></li>
+                <li class="nav-item"><a class="nav-link" href="/services">Services</a></li>
+                <li class="nav-item"><a class="nav-link" href="/contact">Contact</a></li>
+                <li class="nav-item"><a class="nav-link" href="/feedback">Feedback</a></li>
+            </ul>
 
-          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-
-            <li class="nav-item">
-              <a class="nav-link active" href="/">Home</a>
-            </li>
-
-            <li class="nav-item">
-              <a class="nav-link" href="/about">About Us</a>
-            </li>
-
-            <li class="nav-item dropdown">
-              <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown">
-                Services
-              </a>
-
-              <ul class="dropdown-menu">
-                <li><a class="dropdown-item" href="#">Beauty Products</a></li>
-                <li><a class="dropdown-item" href="#">Clothing</a></li>
-                <li><hr class="dropdown-divider"></li>
-                <li><a class="dropdown-item" href="#">Accessories</a></li>
-              </ul>
-            </li>
-
-            <li class="nav-item">
-              <a class="nav-link" href="/contact">Contact Us</a>
-            </li>
-
-
-            <li class="nav-item">
-              <a class="nav-link" href="/feedback">Feedback</a>
-            </li>
-          </ul>
-
-          <!-- Search -->
-          <form class="d-flex">
-            <input class="form-control me-2" type="search" placeholder="Search">
-            <button class="btn btn-outline-success">Search</button>
-          </form>
-
+            <form class="d-flex ms-auto">
+                <input class="form-control me-2" type="search" placeholder="Search">
+                <button class="btn btn-outline-success">Search</button>
+            </form>
         </div>
-      </div>
-    </nav>
-
-    <!-- Page Body -->
-    <div class="container mt-4">
-      {% block body %}{% endblock body %}
     </div>
+</nav>
 
-    <!-- Bootstrap JS -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
 
-  </body>
+{% block content %}{% endblock %}
+
+
+<footer>
+    <div class="container text-center">
+        <p>© 2026 Govind Attire. All rights reserved</p>
+        <small>Built by Yash Raj Sharma</small>
+    </div>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
 </html>
