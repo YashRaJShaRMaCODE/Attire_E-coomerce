@@ -1,0 +1,66 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="container my-5">
+    <h2 class="mb-4">My Account</h2>
+    <div class="row">
+        <div class="col-md-4">
+            <div class="card shadow-sm">
+                <div class="card-body">
+                    <h5 class="card-title">John Doe</h5>
+                    <p class="card-text">
+                        <strong>Email:</strong>
+                        john.doe@example.com
+                    </p>
+                    <p class="card-text">
+                        <strong>Phone:</strong>
+                        +1 234 567 890
+                    </p>
+                    <p class="card-text">
+                        <strong>Address:</strong>
+                        123 Main St, Anytown, USA
+                    </p>
+                    <button class="btn btn-primary">Edit Profile</button>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-8">
+            <div class="card shadow-sm">
+                <div class="card-body">
+                    <h5 class="card-title">Order History</h5>
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th>Order ID</th>
+                                <th>Date</th>
+                                <th>Status</th>
+                                <th>Total</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>#12345</td>
+                                <td>2024-05-01</td>
+                                <td><span class="badge bg-success">Delivered</span></td>
+                                <td>₹2999</td>
+                            </tr>
+                            <tr>
+                                <td>#12346</td>
+                                <td>2024-05-10</td>
+                                <td><span class="badge bg-warning">Processing</span></td>
+                                <td>₹1499</td>
+                            </tr>
+                            <tr>
+                                <td>#12347</td>
+                                <td>2024-05-15</td>
+                                <td><span class="badge bg-danger">Cancelled</span></td>
+                                <td>₹999</td>
+                            </tr>
+                        </tbody>    
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock content %}
+

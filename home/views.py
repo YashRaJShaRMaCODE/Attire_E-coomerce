@@ -1,7 +1,7 @@
 from django.shortcuts import render,HttpResponse
 from home.models import Contact
 from home.models import Feedback
-
+from django.contrib.auth import authenticate, login, logout
 # Create your views here.
 def index(request):
     context={'variable':"this is sent"}
@@ -11,6 +11,11 @@ def about(request):
 
 def services(request):
     return render(request,'services.html')
+def profile_settings(request):
+    return render(request, 'profile_settings.html')
+
+def account_settings(request):
+    return render(request, 'account_settings.html')
 
 def contact(request):
     if request.method == "POST":
@@ -40,3 +45,37 @@ def feedback(request):
             message=message
         )
     return render(request,'feedback.html')
+from django.shortcuts import render, redirect
+from django.contrib.auth import authenticate, login, logout
+from django.contrib import messages
+
+
+def user_login(request):
+    if request.method == "POST":
+        username = request.POST.get("username")
+        password = request.POST.get("password")
+
+        user = authenticate(request, username=username, password=password)
+
+        if user is not None:
+            login(request, user)
+            return redirect('home')
+        else:
+            messages.error(request, "Invalid username or password")
+
+    return render(request, "login.html")
+
+
+def user_logout(request):
+    logout(request)
+    return redirect('login')
+
+def cart(request):
+    return render(request, 'cart.html')
+def my_account(request):
+    return render(request, 'my_account.html')   
+
+def profile_setting(request):
+    return render(request, 'profile_setting.html')  
+def account_setting(request):   
+    return render(request, 'account_setting.html')

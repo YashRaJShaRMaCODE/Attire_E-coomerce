@@ -1,12 +1,71 @@
-{% extends 'base.html' %}
+{% extends "base.html" %}
+
+{% block title %}About - Govind Attire{% endblock title %}
+
 {% block content %}
 
-<div class="container mt-5">
-    <h2>About Govind Attire</h2>
-    <p class="mt-3">
-        Govind Attire is a modern fashion brand delivering stylish and affordable clothing.
-        Our mission is to provide high-quality outfits for men, women, and kids with comfort and elegance.
-    </p>
+<div class="container py-5">
+
+    <!-- Page Heading -->
+    <div class="text-center mb-5">
+        <h1 class="fw-bold">About Govind Attire</h1>
+        <p class="text-muted">Style • Comfort • Confidence</p>
+    </div>
+
+    <!-- About Section -->
+    <div class="row align-items-center">
+        
+        <!-- Image -->
+        <div class="col-md-5">
+            <img src="https://images.unsplash.com/photo-1521334884684-d80222895322"
+                 class="img-fluid rounded shadow"
+                 alt="Fashion Image">
+        </div>
+
+        <!-- Text -->
+        <div class="col-md-7">
+            <h3 class="fw-semibold">Who We Are</h3>
+            <p>
+                Govind Attire is a modern fashion brand dedicated to delivering stylish, 
+                affordable, and high-quality clothing for men, women, and kids. We believe 
+                fashion is not just about clothes — it's about confidence, personality, and comfort.
+            </p>
+
+            <h3 class="fw-semibold mt-4">Our Mission</h3>
+            <p>
+                Our mission is to provide premium-quality outfits at affordable prices while 
+                ensuring comfort, durability, and elegance. We aim to make fashion accessible 
+                to everyone without compromising on quality.
+            </p>
+
+            <h3 class="fw-semibold mt-4">Why Choose Us?</h3>
+            <ul>
+                <li>✔ Premium Quality Fabrics</li>
+                <li>✔ Affordable Pricing</li>
+                <li>✔ Trendy & Modern Designs</li>
+                <li>✔ Comfortable Wear</li>
+                <li>✔ Trusted by Customers</li>
+            </ul>
+        </div>
+
+    </div>
+
+    <!-- Extra Section -->
+    <div class="row text-center mt-5">
+        <div class="col-md-4">
+            <h2 class="fw-bold text-primary">5000+</h2>
+            <p>Happy Customers</p>
+        </div>
+        <div class="col-md-4">
+            <h2 class="fw-bold text-primary">100+</h2>
+            <p>Fashion Products</p>
+        </div>
+        <div class="col-md-4">
+            <h2 class="fw-bold text-primary">24/7</h2>
+            <p>Customer Support</p>
+        </div>
+    </div>
+
 </div>
 
-{% endblock %}
+{% endblock content %}

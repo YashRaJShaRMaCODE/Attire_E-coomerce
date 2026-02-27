@@ -9,5 +9,13 @@ urlpatterns = [
    path("about/",views.about,name='about' ),
    path("services/",views.services,name='services'),
    path("contact/",views.contact,name='contact'),
-   path("feedback/",views.feedback,name='feedback')
+   path("feedback/",views.feedback,name='feedback'),
+   path('profile-settings/', views.profile_settings, name='profile_settings'),
+   path('account-settings/', views.account_settings, name='account_settings'),
+    path('login/', views.user_login, name='login'),
+    path('logout/', views.user_logout, name='logout'),
+    path('cart/', views.cart, name='cart'),
+    path('my-account/', views.my_account, name='my_account'),
+    path('my-account/profile-setting/', views.profile_setting, name='profile_setting'),
+    path('my-account/account-setting/', views.account_setting, name='account_setting'),
 ]
