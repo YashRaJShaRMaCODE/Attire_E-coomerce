@@ -1,0 +1,43 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="container my-5">
+    <h2 class="mb-4">Purchase History</h2>
+    <div class="card shadow-sm">
+        <div class="card-body">
+            <h5 class="card-title">My Purchase History</h5>
+            <table class="table">   
+                <thead>
+                    <tr>
+                        <th>Order ID</th>
+                        <th>Date</th>
+                        <th>Status</th>
+                        <th>Total</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>#12345</td>
+                        <td>2024-05-01</td>
+                        <td><span class="badge bg-success">Delivered</span></td>
+                        <td>₹2999</td>
+                    </tr>
+                    <tr>
+                        <td>#12346</td>
+                        <td>2024-05-10</td>
+                        <td><span class="badge bg-warning">Processing</span></td>
+                        <td>₹1499</td>
+                    </tr>
+                    <tr>
+                        <td>#12347</td>
+                        <td>2024-05-15</td>
+                        <td><span class="badge bg-danger">Cancelled</span></td>
+                        <td>₹999</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+{% endblock content %}

@@ -1,0 +1,44 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="container my-5">
+    <h2 class="mb-4">Account Settings</h2>
+    <div class="card shadow-sm">
+        <div class="card-body">
+            <h5 class="card-title
+">My Orders</h5>
+
+            <table class="table">       
+                <thead>
+                    <tr>
+                        <th>Address Name</th>
+                        <th>Address Line 1</th>
+                        <th>Address Line 2</th>
+                        <th>City</th>
+                        <th>State</th>
+                        <th>Zip Code</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Home</td>
+                        <td>123 Main St</td>
+                        <td>Apt 4B</td>
+                        <td>Anytown</td>
+                        <td>CA</td>
+                        <td>12345</td>
+                    </tr>
+                    <tr>
+                        <td>Work</td>
+                        <td>456 Elm St</td>
+                        <td>Suite 200</td>
+                        <td>Othertown</td>
+                        <td>NY</td>
+                        <td>67890</td>
+                    </tr>
+                </tbody>
+            </table>
+
+        </div>
+    </div>
+</div>
+{% endblock %}

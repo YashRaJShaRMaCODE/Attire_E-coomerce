@@ -84,6 +84,8 @@
                 <li class="nav-item">
                     <a class="nav-link" href="{% url 'services' %}">Services</a>
                 </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'purchase_history' %}">Purchase History</a>
             </ul>
 
             <!-- Search -->
@@ -104,15 +106,22 @@
 
     <ul class="dropdown-menu dropdown-menu-end">
         <li>
-            <a class="dropdown-item" href="{% url 'profile_settings' %}">
-                Profile Settings
+            <a class="dropdown-item" href="{% url 'settings' %}">
+                Settings
             </a>
         </li>
         <li>
-            <a class="dropdown-item" href="{% url 'account_settings' %}">
-                Account Settings
+            <a class="dropdown-item" href="{% url 'my_orders' %}">
+                My Orders
             </a>
         </li>
+         <li>
+            <li>
+            <a class="dropdown-item" href="{% url 'saved_addresses' %}">
+                Saved Addresses
+            </a>
+        </li>
+         <li>
          <li>
             <a class="dropdown-item" href="{% url 'contact' %}">
                 Contact Support

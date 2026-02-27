@@ -79,3 +79,11 @@ def profile_setting(request):
     return render(request, 'profile_setting.html')  
 def account_setting(request):   
     return render(request, 'account_setting.html')
+def my_orders(request):
+    return render(request, 'my_orders.html')    
+def saved_addresses(request):
+    return render(request, 'saved_addresses.html')
+def settings(request):
+    return render(request, 'settings.html')
+def purchase_history(request):
+    return render(request, 'purchase_history.html')
