@@ -85,7 +85,13 @@
                     <a class="nav-link" href="{% url 'services' %}">Services</a>
                 </li>
                 <li class="nav-item">
+                    <a class="nav-link" href="{% url 'product_list' %}">Shop</a>
+                </li>
+                {% if user.is_authenticated %}
+                <li class="nav-item">
                     <a class="nav-link" href="{% url 'purchase_history' %}">Purchase History</a>
+                </li>
+                {% endif %}
             </ul>
 
             <!-- Search -->
@@ -98,13 +104,21 @@
             <ul class="navbar-nav">
 
                 {% if user.is_authenticated %}
-                   <li class="nav-item dropdown">
-    <a class="nav-link dropdown-toggle" href="#" role="button" 
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'cart' %}">Cart</a>
+                </li>
+                <li class="nav-item dropdown">
+    <a class="nav-link dropdown-toggle" href="#" role="button"
        data-bs-toggle="dropdown" aria-expanded="false">
         My Account
     </a>
 
     <ul class="dropdown-menu dropdown-menu-end">
+        <li>
+            <a class="dropdown-item" href="{% url 'my_account' %}">
+                My Account
+            </a>
+        </li>
         <li>
             <a class="dropdown-item" href="{% url 'settings' %}">
                 Settings
@@ -115,33 +129,35 @@
                 My Orders
             </a>
         </li>
-         <li>
-            <li>
+        <li>
             <a class="dropdown-item" href="{% url 'saved_addresses' %}">
                 Saved Addresses
             </a>
         </li>
-         <li>
-         <li>
+        <li>
             <a class="dropdown-item" href="{% url 'contact' %}">
                 Contact Support
             </a>
         </li>
-         <li>
+        <li>
             <a class="dropdown-item" href="{% url 'feedback' %}">
                 Feedback
             </a>
         </li>
-         <li>
+        <li><hr class="dropdown-divider"></li>
+        <li>
             <a class="dropdown-item" href="{% url 'logout' %}">
                 Log Out
             </a>
         </li>
-        <li><hr class="dropdown-divider"></li>
-        </li>
     </ul>
 </li>
                 {% else %}
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'register' %}">
+                            Register
+                        </a>
+                    </li>
                     <li class="nav-item">
                         <a class="nav-link btn btn-primary text-white px-3 ms-2" href="{% url 'login' %}">
                             Login

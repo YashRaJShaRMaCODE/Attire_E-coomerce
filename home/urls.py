@@ -1,25 +1,32 @@
-
-from django.contrib import admin
-from django.urls import path,include
+from django.urls import path
 from home import views
 
-
 urlpatterns = [
-   path("",views.index,name='home'),
-   path("about/",views.about,name='about' ),
-   path("services/",views.services,name='services'),
-   path("contact/",views.contact,name='contact'),
-   path("feedback/",views.feedback,name='feedback'),
-   path('profile-settings/', views.profile_settings, name='profile_settings'),
-   path('account-settings/', views.account_settings, name='account_settings'),
-    path('login/', views.user_login, name='login'),
-    path('logout/', views.user_logout, name='logout'),
-    path('cart/', views.cart, name='cart'),
-    path('my-account/', views.my_account, name='my_account'),
-    path('my-account/settings/profile-setting/', views.profile_setting, name='profile_setting'),
-    path('my-account/settings/account-setting/', views.account_setting, name='account_setting'),
-    path('my-account/my-orders/', views.my_orders, name='my_orders'),
-    path('my-account/settings/saved-addresses/', views.saved_addresses, name='saved_addresses'),
-    path('settings/', views.settings, name='settings'),
-    path("purchase-history/",views.purchase_history,name='purchase_history')
-    ]
+    path("", views.index, name="home"),
+    path("about/", views.about, name="about"),
+    path("services/", views.services, name="services"),
+    path("products/", views.product_list, name="product_list"),
+    path("products/<slug:slug>/", views.product_detail, name="product_detail"),
+    path("contact/", views.contact, name="contact"),
+    path("feedback/", views.feedback, name="feedback"),
+    path("register/", views.register, name="register"),
+    path("profile-settings/", views.profile_settings, name="profile_settings"),
+    path("account-settings/", views.account_settings, name="account_settings"),
+    path("login/", views.user_login, name="login"),
+    path("logout/", views.user_logout, name="logout"),
+    path("cart/", views.cart, name="cart"),
+    path("cart/add/<int:product_id>/", views.add_to_cart, name="add_to_cart"),
+    path("cart/update/<int:item_id>/", views.update_cart, name="update_cart"),
+    path("cart/remove/<int:item_id>/", views.remove_from_cart, name="remove_from_cart"),
+    path("checkout/", views.checkout, name="checkout"),
+    path("checkout/place-order/", views.place_order, name="place_order"),
+    path("order/success/<int:order_id>/", views.order_success, name="order_success"),
+    path("my-account/", views.my_account, name="my_account"),
+    path("my-account/settings/profile-setting/", views.profile_settings, name="profile_setting"),
+    path("my-account/settings/account-setting/", views.account_settings, name="account_setting"),
+    path("my-account/my-orders/", views.my_orders, name="my_orders"),
+    path("my-account/settings/saved-addresses/", views.saved_addresses, name="saved_addresses"),
+    path("address/<int:address_id>/delete/", views.delete_address, name="delete_address"),
+    path("settings/", views.settings, name="settings"),
+    path("purchase-history/", views.purchase_history, name="purchase_history"),
+]

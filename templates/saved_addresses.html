@@ -1,12 +1,17 @@
 {% extends "base.html" %}
 {% block content %}
 <div class="container my-5">
-    <h2 class="mb-4">Account Settings</h2>
-    <div class="card shadow-sm">
+    <h2 class="mb-4">Saved Addresses</h2>
+
+    {% if messages %}
+        {% for message in messages %}
+            <div class="alert alert-success">{{ message }}</div>
+        {% endfor %}
+    {% endif %}
+
+    <div class="card shadow-sm mb-4">
         <div class="card-body">
-            <h5 class="card-title
-">My Orders</h5>
-            <table class="table">       
+            <table class="table">
                 <thead>
                     <tr>
                         <th>Address Name</th>
@@ -15,31 +20,64 @@
                         <th>City</th>
                         <th>State</th>
                         <th>Zip Code</th>
+                        <th></th>
                     </tr>
                 </thead>
                 <tbody>
+                    {% for address in addresses %}
                     <tr>
-                        <td>Home</td>
-                        <td>123 Main St</td>
-                        <td>Apt 4B</td>
-                        <td>Anytown</td>
-                        <td>USA</td>
-                        <td>12345</td>
+                        <td>{{ address.label }}</td>
+                        <td>{{ address.line1 }}</td>
+                        <td>{{ address.line2 }}</td>
+                        <td>{{ address.city }}</td>
+                        <td>{{ address.state }}</td>
+                        <td>{{ address.zip_code }}</td>
+                        <td>
+                            <a href="{% url 'delete_address' address.id %}" class="btn btn-sm btn-outline-danger">Delete</a>
+                        </td>
                     </tr>
-                    <tr>
-                        <td>Work</td>
-                        <td>456 Corporate Blvd</td>
-                        <td>Suite 200</td>
-                        <td>Business City</td>
-                        <td>USA</td>
-                        <td>67890</td>
-                    </tr>
+                    {% empty %}
+                    <tr><td colspan="7" class="text-center">No saved addresses yet.</td></tr>
+                    {% endfor %}
                 </tbody>
             </table>
-
-
-
         </div>
-    </div>  
+    </div>
+
+    <div class="card shadow-sm">
+        <div class="card-body">
+            <h5 class="card-title mb-3">Add New Address</h5>
+            <form method="POST">
+                {% csrf_token %}
+                <div class="row g-3">
+                    <div class="col-md-4">
+                        <label class="form-label">Address Name</label>
+                        <input type="text" name="label" class="form-control" placeholder="Home / Work" required>
+                    </div>
+                    <div class="col-md-4">
+                        <label class="form-label">Address Line 1</label>
+                        <input type="text" name="line1" class="form-control" required>
+                    </div>
+                    <div class="col-md-4">
+                        <label class="form-label">Address Line 2</label>
+                        <input type="text" name="line2" class="form-control">
+                    </div>
+                    <div class="col-md-4">
+                        <label class="form-label">City</label>
+                        <input type="text" name="city" class="form-control" required>
+                    </div>
+                    <div class="col-md-4">
+                        <label class="form-label">State</label>
+                        <input type="text" name="state" class="form-control" required>
+                    </div>
+                    <div class="col-md-4">
+                        <label class="form-label">Zip Code</label>
+                        <input type="text" name="zip_code" class="form-control" required>
+                    </div>
+                </div>
+                <button type="submit" class="btn btn-dark mt-3">Save Address</button>
+            </form>
+        </div>
+    </div>
 </div>
 {% endblock %}
