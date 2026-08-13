@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+{% block title %}Order Placed - Govind Attire{% endblock %}
+
+{% block content %}
+<div class="text-center py-5">
+    <h2 class="text-success fw-bold mb-3">Order Placed Successfully!</h2>
+    <p>Your order <strong>#{{ order.id }}</strong> has been confirmed.</p>
+    <p>Total Amount: <strong>₹{{ order.total_price }}</strong></p>
+    <a href="{% url 'my_orders' %}" class="btn btn-dark mt-3">View My Orders</a>
+    <a href="{% url 'home' %}" class="btn btn-outline-dark mt-3">Continue Shopping</a>
+</div>
+{% endblock %}

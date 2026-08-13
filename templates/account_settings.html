@@ -42,6 +42,12 @@
                 <div class="card-body">
                     <h4 class="fw-bold mb-4">Change Password</h4>
 
+                    {% if messages %}
+                        {% for message in messages %}
+                            <div class="alert {% if 'incorrect' in message.message or 'match' in message.message or 'empty' in message.message %}alert-danger{% else %}alert-success{% endif %}">{{ message }}</div>
+                        {% endfor %}
+                    {% endif %}
+
                     <form method="POST">
                         {% csrf_token %}
 

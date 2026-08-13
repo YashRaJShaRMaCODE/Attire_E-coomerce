@@ -41,43 +41,23 @@
 <h2 class="text-center my-5 fw-bold">Featured Products</h2>
 
 <div class="row">
-
+    {% for product in products %}
     <div class="col-md-4 mb-4">
         <div class="card shadow-sm">
-            <img src="https://images.unsplash.com/photo-1583001809873-a128495da465"
+            {% if product.image_url %}
+            <img src="{{ product.image_url }}"
                  class="card-img-top" style="height:250px; object-fit:cover;">
+            {% endif %}
             <div class="card-body text-center">
-                <h5>Stylish Jacket</h5>
-                <p>₹1999</p>
-                <a href="{% url 'cart' %}" class="btn btn-dark">Add to Cart</a>
+                <h5>{{ product.name }}</h5>
+                <p>₹{{ product.price }}</p>
+                <a href="{% url 'add_to_cart' product.id %}" class="btn btn-dark">Add to Cart</a>
             </div>
         </div>
     </div>
-
-    <div class="col-md-4 mb-4">
-        <div class="card shadow-sm">
-            <img src="https://images.unsplash.com/photo-1523381294911-8d3cead13475"
-                 class="card-img-top" style="height:250px; object-fit:cover;">
-            <div class="card-body text-center">
-                <h5>Casual Shirt</h5>
-                <p>₹999</p>
-                <a href="{% url 'cart' %}" class="btn btn-dark">Add to Cart</a>
-            </div>
-        </div>
-    </div>
-
-    <div class="col-md-4 mb-4">
-        <div class="card shadow-sm">
-            <img src="https://images.unsplash.com/photo-1520975918318-4a8a9c4b7c26"
-                 class="card-img-top" style="height:250px; object-fit:cover;">
-            <div class="card-body text-center">
-                <h5>Denim Jeans</h5>
-                <p>₹1499</p>
-                <a href="{% url 'cart' %}" class="btn btn-dark">Add to Cart</a>
-            </div>
-        </div>
-    </div>
-
+    {% empty %}
+    <p class="text-center">No products available yet. Check back soon!</p>
+    {% endfor %}
 </div>
 
 
@@ -85,25 +65,25 @@
 <h2 class="text-center my-5 fw-bold">Shop By Category</h2>
 
 <div class="row text-center mb-5">
-
-    <div class="col-md-4">
-        <div class="p-4 border rounded shadow-sm">
-            <h4>Men</h4>
-        </div>
+    {% for category in categories %}
+    <div class="col-md-4 mb-4">
+        <a href="{% url 'product_list' %}?category={{ category.slug }}" class="text-decoration-none text-dark">
+            <div class="p-4 border rounded shadow-sm">
+                <h4>{{ category.name }}</h4>
+            </div>
+        </a>
     </div>
-
+    {% empty %}
     <div class="col-md-4">
-        <div class="p-4 border rounded shadow-sm">
-            <h4>Women</h4>
-        </div>
+        <div class="p-4 border rounded shadow-sm"><h4>Men</h4></div>
     </div>
-
     <div class="col-md-4">
-        <div class="p-4 border rounded shadow-sm">
-            <h4>Kids</h4>
-        </div>
+        <div class="p-4 border rounded shadow-sm"><h4>Women</h4></div>
     </div>
-
+    <div class="col-md-4">
+        <div class="p-4 border rounded shadow-sm"><h4>Kids</h4></div>
+    </div>
+    {% endfor %}
 </div>
 
 {% endblock %}
